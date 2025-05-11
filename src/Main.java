@@ -92,6 +92,7 @@ public class Main {
 
                 default:
                     System.out.println("Opción inválida.");
+                    System.out.println("");
             }
 
         } while (op != 5);
