@@ -1,8 +1,8 @@
 public class tablasDispersion {
     // Atributos
     private Tareas[] tabla;         // Array que representa la tabla hash
-    private int numElementos;       // Cantidad de elementos insertados
-    private final int TAMAÑO = 101; // Tamaño fijo de la tabla
+    private int numElementos;       
+    private final int TAMAÑO = 101; // Tamaño de la tabla
 
     // Constructor: inicializa la tabla y contador
     public tablasDispersion() {
@@ -19,27 +19,26 @@ public class tablasDispersion {
         return valor;
     }
 
-    // Metodo de la multiplicación para calcular la posición en la tabla
-
+    // Metodo de la multiplicación
     public int calcularPosicion(String codigo) {
-        double A = 0.6180339887; // constante recomendada
+        double A = 0.6180339887; 
         int valor = valor(codigo);
         double producto = valor * A;
         double decimal = producto - Math.floor(producto);
         return (int)(decimal * TAMAÑO);
     }
 
-    // Exploración cuadrática para resolver colisiones
+    // Exploración cuadrática 
     public int resolverColision(int posicionInicial, int i) {
         return (posicionInicial + i * i) % TAMAÑO;
     }
 
-    // Calcula y retorna el factor de carga actual de la tabla
+    // Calcula y retorna el factor de carga 
     public double calcularFactorCarga() {
         return (double) numElementos / TAMAÑO;
     }
 
-    // Inserta una tarea en la tabla si hay espacio disponible
+    // Inserta una tarea en la tabla si hay espacio 
     public boolean insertar(Tareas t) {
         if (numElementos >= TAMAÑO) return false;
 
@@ -57,20 +56,19 @@ public class tablasDispersion {
         return true;
     }
 
-    // Busca una tarea activa por su código
     public Tareas buscar(String codigo) {
         int posicion = calcularPosicion(codigo);
         int i = 0;
 
         while (tabla[posicion] != null) {
             if (tabla[posicion].getCodigo().equals(codigo) && tabla[posicion].isALTA()) {
-                return tabla[posicion]; // encontrada
+                return tabla[posicion];
             }
             i++;
             posicion = resolverColision(posicion, i);
         }
 
-        return null; // no encontrada
+        return null; 
     }
 
     // Verifica si la tabla está vacía
@@ -83,7 +81,7 @@ public class tablasDispersion {
         return true;
     }
 
-    // Elimina una tarea (baja lógica: cambia esALTA a false)
+    // Elimina una tarea (le da la baja: cambia esALTA a false)
     public boolean eliminar(String codigo) {
         Tareas t = buscar(codigo);
         if (t != null) {
@@ -93,7 +91,7 @@ public class tablasDispersion {
         return false;
     }
 
-    // Muestra todas las tareas (activas y dadas de baja) con su estado
+    // Muestra todas las tareas con su estado
     public void mostrarTabla() {
         System.out.println("\n--- Estado actual de la tabla ---");
         for (int i = 0; i < TAMAÑO; i++) {
