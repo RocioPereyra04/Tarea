@@ -98,7 +98,7 @@ public class Main {
                     System.out.println("Opción inválida.");
             }
 
-        } while (op != 5);
+        } while (op != 6);
         cargar.close(); 
     }
 }
