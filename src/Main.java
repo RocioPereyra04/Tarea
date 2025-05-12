@@ -2,9 +2,8 @@ import java.time.LocalDate;
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner cargar = new Scanner(System.in);// Scanner para entrada de datos
-
-        tablasDispersion tablas = new tablasDispersion(); // Instancia de la tabla dispersa
+        Scanner cargar = new Scanner(System.in);
+        tablasDispersion tablas = new tablasDispersion(); 
 
         int op;
         do {
@@ -18,10 +17,10 @@ public class Main {
             System.out.println("5. Salir");
             System.out.print("Ingresar la opción que desee: ");
             op = cargar.nextInt();
-            cargar.nextLine(); // Limpia el buffer del scanner
+            cargar.nextLine(); // Limpia el buffer 
 
             switch (op) {
-                case 1: // Agregar nueva tarea
+                case 1:
                     System.out.println("-- AGREGAR TAREA --");
 
                     System.out.print("Nombre de tarea: ");
@@ -48,7 +47,7 @@ public class Main {
                     }
                     break;
 
-                case 2: // Buscar tarea por código
+                case 2: 
                     if (tablas.estaVacia()) {
                         System.out.println("No hay tareas registradas.");
                         break;
@@ -92,10 +91,9 @@ public class Main {
 
                 default:
                     System.out.println("Opción inválida.");
-                    System.out.println("");
             }
 
         } while (op != 5);
-        cargar.close(); // Cierra el scanner
+        cargar.close(); 
     }
 }
