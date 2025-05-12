@@ -14,7 +14,8 @@ public class Main {
             System.out.println("2. Buscar Tarea");
             System.out.println("3. Eliminar Tarea");
             System.out.println("4. Mostrar tareas");
-            System.out.println("5. Salir");
+            System.out.println("5. Mostrar el factor de carga:");
+            System.out.println("6. Salir");
             System.out.print("Ingresar la opción que desee: ");
             op = cargar.nextInt();
             cargar.nextLine(); // Limpia el buffer 
@@ -86,6 +87,10 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.printf("Factor de carga actual: %.2f\n", tablas.calcularFactorCarga());
+                    break;
+
+                case 6:
                     System.out.println("Gracias por usar el sistema.");
                     break;
 
