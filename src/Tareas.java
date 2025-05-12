@@ -24,10 +24,8 @@ public class Tareas {
         this.ALTA = true;
     }
 
-    // Constructor vacío (por si se necesita instanciar sin parámetros)
-    public Tareas() {}
 
-    // SETTERS: permiten modificar los valores de los atributos
+    // SETTERS
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
@@ -56,7 +54,7 @@ public class Tareas {
         this.ALTA = ALTA;
     }
 
-    // GETTERS: permiten acceder a los valores de los atributos
+    // GETTERS
     public String getCodigo() {
         return codigo;
     }
@@ -85,7 +83,6 @@ public class Tareas {
         return ALTA;
     }
 
-    // Metodo toString: devuelve una representación textual de la tarea
     @Override
     public String toString() {
         return "Tarea [" +
